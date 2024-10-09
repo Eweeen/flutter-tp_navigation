@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
   final String title;
+
+  const MyHomePage({super.key, required this.title});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -39,15 +39,19 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: ElevatedButton(
-        child: Text('Aller à la page de détails'),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DetailPage()),
-          );
-        },
-      )),
+        child: ElevatedButton(
+          child: Text('Aller à la page de détails'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    DetailPage(message: 'Salut de la page principale!'),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
